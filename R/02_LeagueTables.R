@@ -1,5 +1,5 @@
 # Package names
-packages <- c("tidyverse", "ggplot2", "devtools", "StatsBombR", "SBpitch", "hrbrthemes", "grid", "worldFootballR")
+packages <- c("tidyverse", "ggplot2", "devtools", "StatsBombR", "SBpitch", "hrbrthemes", "grid", "worldfootballR")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())
@@ -26,6 +26,8 @@ leagueTableUpdated <- leagueTable %>%
   rename("League ID" = league_id, `Position` = table_idx, "Team" = table_name, "Team Abbr" = table_short_name, "Team ID" = table_id,
          "Matches" = table_played, "Wins" = table_wins, "Draws" = table_draws, "Loss" = table_losses, "Scored And Conceded" = table_scores_str,
          "Goal Difference" = table_goal_con_diff, "Points" = table_pts, "Coding Colour" = table_qual_color)
+
+
 
 ?fotmob_get_league_tables
 
