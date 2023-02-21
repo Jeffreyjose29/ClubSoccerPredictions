@@ -27,3 +27,7 @@ matches_latest <- read.csv("spi_matches_latest.csv", header = TRUE)
 global_rankings <- global_rankings %>% filter(league == "Barclays Premier League")
 matches <- matches %>% filter(league_id == 2411)
 matches_latest <- matches_latest %>% filter(league_id == 2411)
+
+
+
+
