@@ -98,3 +98,14 @@ server <- function(input, output, session) {
 
 # 3.0 FUSE --------
 shinyApp(ui, server)
+
+
+
+# NOTES ----------
+#2AD572 - Champions League
+#0046A7 - Europa League
+#FF4646 - Relegation
+#02CCF0 - Conference League
+#FFD908 - Champions League Qualifiers
+#7FAEFF - Conference League
+#FFA72F - Relegation Play-Offs
