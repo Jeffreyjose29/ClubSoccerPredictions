@@ -40,10 +40,11 @@ ui <- dashboardPage(
     width = 300,
     sidebarMenu(
       menuItem("1. League Standings", tabName = "leagueStandings", icon = icon("tools")),
-      menuItem("2. Fixtures & Results", tabName = "fixtureResults", icon = icon("user")),
-      menuItem("3. Transfers", tabName = "transfers", icon = icon("user")),
-      menuItem("4. Football Power Index", tabName = "fpi", icon = icon("user")),
-      menuItem("5. Season Predictor", tabName = "seasonPredictor", icon = icon("user"))
+      menuItem("2. Club Statistics", tabName = "club", icon = icon("user")),
+      menuItem("3. Fixtures & Results", tabName = "fixtureResults", icon = icon("user")),
+      menuItem("4. Transfers", tabName = "transfers", icon = icon("user")),
+      menuItem("5. Football Power Index", tabName = "fpi", icon = icon("user")),
+      menuItem("6. Season Predictor", tabName = "seasonPredictor", icon = icon("user"))
     )
   ),
   dashboardBody(
