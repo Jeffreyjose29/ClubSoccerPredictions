@@ -50,13 +50,29 @@ ui <- dashboardPage(
   dashboardBody(
     tabItems(
       tabItem("leagueStandings",
-              selectInput("league", "Select A League:", leagueTable$League),
-              selectInput("club", "Select A Club:", leagueTable$Team)
+              # Select the league
+              selectInput(inputId = "leagueFilter", label = strong("Select A League:"),
+                          choices = unique(leagueTable$League),
+                          selected = "Premier League"),
+              selectInput(inputId = "clubFilters", label = strong("Select A Club:"),
+                          choices = unique(leagueTable$Team),
+                          selected = "Arsenal"),
+              #uiOutput("leagueLogo", align = "center")
+              imageOutput("leagueImage")
               ),
-      tabItem("fixtureResults",
+      tabItem("club",
+              div(p("In development")),
               selectInput("species", "Select a species", iris$Species),
               dataTableOutput("irisspecies"),
-              downloadButton(outputId = "download", label = "Download .PDF"))
+              downloadButton(outputId = "download", label = "Download .PDF")),
+      tabItem("fixtureResults",
+              div(p("In development"))),
+      tabItem("transfers",
+              div(p("In development"))),
+      tabItem("fpi",
+              div(p("In development"))),
+      tabItem("seasonPredictor",
+              div(p("In development")))
     )
   )
 )
@@ -64,6 +80,21 @@ ui <- dashboardPage(
 # 2.0 SERVER --------
 
 server <- function(input, output) {
+  output$leagueImage <- renderImage({
+    if(input$leagueFilter == "Premier League"){
+      img(height = 240, width = 350, src = "www/PL_Logo.png")
+    }else if(input$leagueFilter == "La Liga"){
+      img(height = 240, width = 240, src = "www/PL_Logo.png")
+    }else if(input$leagueFilter == "1. Bundesliga"){
+      img(height = 240, width = 240, src = "www/PL_Logo.png")
+    }else if(input$leagueFilter == "Ligue 1"){
+      img(height = 240, width = 210, src = "www/PL_Logo.png")
+    }else if(input$leagueFilter == "Eredivisie"){
+      img(height = 200, width = 300, src = "www/PL_Logo.png")
+    }else{
+      ""
+    }
+  })
 }
 
 
