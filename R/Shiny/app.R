@@ -34,67 +34,19 @@ leagueTable$Team <- as.factor(leagueTable$Team)
 # 1.0 USER INTERFACE --------
 
 ui <- dashboardPage(
-  skin = "red", 
-  dashboardHeader(title = "Football In-Depth", titleWidth = 300),
-  dashboardSidebar(
-    width = 300,
-    sidebarMenu(
-      menuItem("1. League Standings", tabName = "leagueStandings", icon = icon("tools")),
-      menuItem("2. Club Statistics", tabName = "club", icon = icon("user")),
-      menuItem("3. Fixtures & Results", tabName = "fixtureResults", icon = icon("user")),
-      menuItem("4. Transfers", tabName = "transfers", icon = icon("user")),
-      menuItem("5. Football Power Index", tabName = "fpi", icon = icon("user")),
-      menuItem("6. Season Predictor", tabName = "seasonPredictor", icon = icon("user"))
-    )
-  ),
   dashboardBody(
-    tabItems(
-      tabItem("leagueStandings",
-              # Select the league
-              selectInput(inputId = "leagueFilter", label = strong("Select A League:"),
-                          choices = unique(leagueTable$League),
-                          selected = "Premier League"),
-              selectInput(inputId = "clubFilters", label = strong("Select A Club:"),
-                          choices = unique(leagueTable$Team),
-                          selected = "Arsenal"),
-              #uiOutput("leagueLogo", align = "center")
-              imageOutput("leagueImage")
-              ),
-      tabItem("club",
-              div(p("In development")),
-              selectInput("species", "Select a species", iris$Species),
-              dataTableOutput("irisspecies"),
-              downloadButton(outputId = "download", label = "Download .PDF")),
-      tabItem("fixtureResults",
-              div(p("In development"))),
-      tabItem("transfers",
-              div(p("In development"))),
-      tabItem("fpi",
-              div(p("In development"))),
-      tabItem("seasonPredictor",
-              div(p("In development")))
+    setBackgroundImage(
+      src = "https://images2.alphacoders.com/127/1276415.jpg",
+      shinydashboard = TRUE
     )
   )
+  
 )
 
 # 2.0 SERVER --------
 
 server <- function(input, output) {
-  output$leagueImage <- renderImage({
-    if(input$leagueFilter == "Premier League"){
-      img(height = 240, width = 350, src = "www/PL_Logo.png")
-    }else if(input$leagueFilter == "La Liga"){
-      img(height = 240, width = 240, src = "www/PL_Logo.png")
-    }else if(input$leagueFilter == "1. Bundesliga"){
-      img(height = 240, width = 240, src = "www/PL_Logo.png")
-    }else if(input$leagueFilter == "Ligue 1"){
-      img(height = 240, width = 210, src = "www/PL_Logo.png")
-    }else if(input$leagueFilter == "Eredivisie"){
-      img(height = 200, width = 300, src = "www/PL_Logo.png")
-    }else{
-      ""
-    }
-  })
+
 }
 
 
